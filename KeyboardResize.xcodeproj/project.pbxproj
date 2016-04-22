@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		300BC2EC1CCAB7C7002FA59E /* KeyboardResize.h in Headers */ = {isa = PBXBuildFile; fileRef = 300BC2EB1CCAB7C7002FA59E /* KeyboardResize.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		300BC2F31CCAB7C7002FA59E /* KeyboardResize.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 300BC2E81CCAB7C7002FA59E /* KeyboardResize.framework */; };
-		300BC2F81CCAB7C7002FA59E /* KeyboardResizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300BC2F71CCAB7C7002FA59E /* KeyboardResizeTests.swift */; };
+		3020D00F1CCABDD2007D9FB3 /* KeyboardResizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300BC3071CCABC77002FA59E /* KeyboardResizeTests.swift */; };
+		3020D0111CCABE57007D9FB3 /* KeyboardResize.h in Headers */ = {isa = PBXBuildFile; fileRef = 300BC3041CCABC77002FA59E /* KeyboardResize.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,11 +24,11 @@
 
 /* Begin PBXFileReference section */
 		300BC2E81CCAB7C7002FA59E /* KeyboardResize.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KeyboardResize.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		300BC2EB1CCAB7C7002FA59E /* KeyboardResize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyboardResize.h; sourceTree = "<group>"; };
-		300BC2ED1CCAB7C7002FA59E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		300BC2F21CCAB7C7002FA59E /* KeyboardResizeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeyboardResizeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		300BC2F71CCAB7C7002FA59E /* KeyboardResizeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardResizeTests.swift; sourceTree = "<group>"; };
-		300BC2F91CCAB7C7002FA59E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		300BC3031CCABC77002FA59E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		300BC3041CCABC77002FA59E /* KeyboardResize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardResize.h; sourceTree = "<group>"; };
+		300BC3061CCABC77002FA59E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		300BC3071CCABC77002FA59E /* KeyboardResizeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardResizeTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,8 +53,8 @@
 		300BC2DE1CCAB7C7002FA59E = {
 			isa = PBXGroup;
 			children = (
-				300BC2EA1CCAB7C7002FA59E /* KeyboardResize */,
-				300BC2F61CCAB7C7002FA59E /* KeyboardResizeTests */,
+				300BC3021CCABC77002FA59E /* Source */,
+				300BC3051CCABC77002FA59E /* Tests */,
 				300BC2E91CCAB7C7002FA59E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -68,22 +68,38 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		300BC2EA1CCAB7C7002FA59E /* KeyboardResize */ = {
+		300BC3021CCABC77002FA59E /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				300BC2EB1CCAB7C7002FA59E /* KeyboardResize.h */,
-				300BC2ED1CCAB7C7002FA59E /* Info.plist */,
+				3020D0121CCABF98007D9FB3 /* Supporting Files */,
 			);
-			path = KeyboardResize;
+			path = Source;
 			sourceTree = "<group>";
 		};
-		300BC2F61CCAB7C7002FA59E /* KeyboardResizeTests */ = {
+		300BC3051CCABC77002FA59E /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				300BC2F71CCAB7C7002FA59E /* KeyboardResizeTests.swift */,
-				300BC2F91CCAB7C7002FA59E /* Info.plist */,
+				300BC3071CCABC77002FA59E /* KeyboardResizeTests.swift */,
+				3020D0131CCABFA7007D9FB3 /* Supporting Files */,
 			);
-			path = KeyboardResizeTests;
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		3020D0121CCABF98007D9FB3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				300BC3041CCABC77002FA59E /* KeyboardResize.h */,
+				300BC3031CCABC77002FA59E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3020D0131CCABFA7007D9FB3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				300BC3061CCABC77002FA59E /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -93,7 +109,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				300BC2EC1CCAB7C7002FA59E /* KeyboardResize.h in Headers */,
+				3020D0111CCABE57007D9FB3 /* KeyboardResize.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,7 +217,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				300BC2F81CCAB7C7002FA59E /* KeyboardResizeTests.swift in Sources */,
+				3020D00F1CCABDD2007D9FB3 /* KeyboardResizeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,7 +330,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = KeyboardResize/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kogimobile.KeyboardResize;
@@ -330,7 +346,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = KeyboardResize/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kogimobile.KeyboardResize;
@@ -342,7 +358,7 @@
 		300BC3001CCAB7C7002FA59E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = KeyboardResizeTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kogimobile.KeyboardResizeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -352,7 +368,7 @@
 		300BC3011CCAB7C7002FA59E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = KeyboardResizeTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kogimobile.KeyboardResizeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -378,6 +394,7 @@
 				300BC2FE1CCAB7C7002FA59E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		300BC2FF1CCAB7C7002FA59E /* Build configuration list for PBXNativeTarget "KeyboardResizeTests" */ = {
 			isa = XCConfigurationList;
@@ -386,6 +403,7 @@
 				300BC3011CCAB7C7002FA59E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
