@@ -15,6 +15,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         kg_resizeViewWhenKeyboardAppears = true
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeybaord))
+        view.addGestureRecognizer(tapGesture)
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,6 +25,8 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    func dismissKeybaord() {
+        view.endEditing(true)
+    }
 }
 
