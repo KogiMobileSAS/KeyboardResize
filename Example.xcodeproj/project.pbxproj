@@ -12,9 +12,11 @@
 		3020D04E1CCAC8EB007D9FB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3020D0461CCAC8EB007D9FB3 /* LaunchScreen.storyboard */; };
 		3020D04F1CCAC8EB007D9FB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3020D0481CCAC8EB007D9FB3 /* Main.storyboard */; };
 		3020D0511CCAC8EB007D9FB3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3020D04B1CCAC8EB007D9FB3 /* ViewController.swift */; };
+		30D75CED1CCEA53F00C9E154 /* KeyboardResize.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30114C551CCE493F00240D51 /* KeyboardResize.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		30114C551CCE493F00240D51 /* KeyboardResize.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeyboardResize.framework; path = "../../../Library/Developer/Xcode/DerivedData/KeyboardResize-hhzoybzievvqjnarbbqhqiyqvjsi/Build/Products/Debug-iphonesimulator/KeyboardResize.framework"; sourceTree = "<group>"; };
 		3020D0221CCAC829007D9FB3 /* KeyboardResize Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KeyboardResize Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3020D0441CCAC8EB007D9FB3 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3020D0451CCAC8EB007D9FB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -29,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30D75CED1CCEA53F00C9E154 /* KeyboardResize.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +41,7 @@
 		3020D0191CCAC829007D9FB3 = {
 			isa = PBXGroup;
 			children = (
+				30114C551CCE493F00240D51 /* KeyboardResize.framework */,
 				3020D0431CCAC8EB007D9FB3 /* Source */,
 				3020D0231CCAC829007D9FB3 /* Products */,
 			);

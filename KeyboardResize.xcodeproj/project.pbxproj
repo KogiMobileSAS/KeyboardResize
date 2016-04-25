@@ -10,6 +10,7 @@
 		300BC2F31CCAB7C7002FA59E /* KeyboardResize.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 300BC2E81CCAB7C7002FA59E /* KeyboardResize.framework */; };
 		3020D00F1CCABDD2007D9FB3 /* KeyboardResizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300BC3071CCABC77002FA59E /* KeyboardResizeTests.swift */; };
 		3020D0111CCABE57007D9FB3 /* KeyboardResize.h in Headers */ = {isa = PBXBuildFile; fileRef = 300BC3041CCABC77002FA59E /* KeyboardResize.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		30249FCE1CCACB790095F34B /* UIViewController+KeyboardResize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30249FCD1CCACB790095F34B /* UIViewController+KeyboardResize.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		300BC3041CCABC77002FA59E /* KeyboardResize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardResize.h; sourceTree = "<group>"; };
 		300BC3061CCABC77002FA59E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		300BC3071CCABC77002FA59E /* KeyboardResizeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardResizeTests.swift; sourceTree = "<group>"; };
+		30249FCD1CCACB790095F34B /* UIViewController+KeyboardResize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+KeyboardResize.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 		300BC3021CCABC77002FA59E /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				30249FCD1CCACB790095F34B /* UIViewController+KeyboardResize.swift */,
 				3020D0121CCABF98007D9FB3 /* Supporting Files */,
 			);
 			path = Source;
@@ -210,6 +213,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30249FCE1CCACB790095F34B /* UIViewController+KeyboardResize.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
