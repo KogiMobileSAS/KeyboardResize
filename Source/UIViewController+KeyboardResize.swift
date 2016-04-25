@@ -85,13 +85,65 @@ extension UIViewController {
     }
     
     func keyboardWillShow(notification: NSNotification) {
-        // TODO: Implement view resize
-        print("KeyboardWillShow")
+        
+        if CGRectIsEmpty(originalFrame) {
+            originalFrame = view.frame
+        }
+        
+        guard let userInfo = notification.userInfo,
+            keyboardFinalFrameValue = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue else {
+                return
+        }
+        let keyboardFinalFrame = keyboardFinalFrameValue.CGRectValue()
+        
+        // In case the keyboard is hidden, don't continue.
+        // This happens when running in the simulator with the keyboard hidden
+        // or when running in an iPad with a hardware keyboard connected.
+        guard !CGRectIsEmpty(keyboardFinalFrame) else  { return }
+        
+        guard let duration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSTimeInterval,
+            animationCurveRaw = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? UInt else {
+                
+                return
+        }
+        
+        let animationCurve = UIViewAnimationOptions(rawValue: animationCurveRaw)
+        
+        UIView.animateWithDuration(
+            duration,
+            delay: 0,
+            options: [.BeginFromCurrentState, animationCurve],
+            animations: {
+                
+                self.view.frame = CGRect(
+                    x: 0,
+                    y: self.originalFrame.origin.y,
+                    width: keyboardFinalFrame.size.width,
+                    height: keyboardFinalFrame.origin.y)
+            },
+            completion: nil)
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        // TODO: Implement view resize
-        print("KeyboardWillHide")
+        
+        guard let userInfo = notification.userInfo else { return }
+        guard let duration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSTimeInterval,
+            animationCurveRaw = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? UInt else {
+                
+                return
+        }
+        
+        let animationCurve = UIViewAnimationOptions(rawValue: animationCurveRaw)
+        
+        UIView.animateWithDuration(
+            duration,
+            delay: 0,
+            options: [.BeginFromCurrentState, animationCurve],
+            animations: {
+                
+                self.view.frame = self.originalFrame
+            },
+            completion: nil)
     }
     
     public override class func initialize() {
