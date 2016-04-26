@@ -1,4 +1,8 @@
 # KeyboardResize
+[![Version](https://img.shields.io/cocoapods/v/KeyboardResize.svg?style=flat)](http://cocoapods.org/pods/KeyboardResize)
+[![License](https://img.shields.io/cocoapods/l/KeyboardResize.svg?style=flat)](http://cocoapods.org/pods/KeyboardResize)
+[![Platform](https://img.shields.io/cocoapods/p/KeyboardResize.svg?style=flat)](http://cocoapods.org/pods/KeyboardResize)
+
 KeyboardResize is a library that automatically resizes the view of your controllers when the keyboard appears.
 
 ## Installation
