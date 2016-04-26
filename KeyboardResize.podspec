@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.author            = "Kogi Mobile"
   s.source            = { :git => 'https://github.com/KogiMobileSAS/KeyboardResize.git', :tag => s.version }
 
-  s.platform          = :ios, "9.0"
+  s.platform          = :ios, "8.0"
 
   s.source_files      = 'Source/*.swift'
 end
