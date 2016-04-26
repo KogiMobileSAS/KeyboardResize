@@ -1,6 +1,12 @@
 # KeyboardResize
 KeyboardResize is a library that automatically resizes the view of your controllers when the keyboard appears.
 
+## Installation
+
+```ruby
+pod 'KeyboardResize', '~> 1.0'
+```
+
 ## Usage
 
 ```swift
