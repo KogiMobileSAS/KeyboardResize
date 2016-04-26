@@ -12,9 +12,6 @@ override func viewDidLoad() {
     kg_resizeViewWhenKeyboardAppears = true
 }
 ```
-## Author
-
-Juan Uribe, juanalberto@kogimobile.com
 
 ## License
 
