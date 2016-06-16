@@ -20,11 +20,6 @@ class ViewController: UIViewController {
         view.addGestureRecognizer(tapGesture)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     func dismissKeybaord() {
         view.endEditing(true)
     }
