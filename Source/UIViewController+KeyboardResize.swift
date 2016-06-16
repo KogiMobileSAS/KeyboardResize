@@ -94,12 +94,6 @@ extension UIViewController {
             keyboardFinalFrameValue = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue else {
                 return
         }
-        let keyboardFinalFrame = keyboardFinalFrameValue.CGRectValue()
-        
-        // In case the keyboard is hidden, don't continue.
-        // This happens when running in the simulator with the keyboard hidden
-        // or when running in an iPad with a hardware keyboard connected.
-        guard !CGRectIsEmpty(keyboardFinalFrame) else  { return }
         
         guard let duration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSTimeInterval,
             animationCurveRaw = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? UInt else {
@@ -108,6 +102,7 @@ extension UIViewController {
         }
         
         let animationCurve = UIViewAnimationOptions(rawValue: animationCurveRaw)
+        let keyboardFinalFrame = keyboardFinalFrameValue.CGRectValue()
         
         UIView.animateWithDuration(
             duration,
@@ -125,6 +120,11 @@ extension UIViewController {
     }
     
     func keyboardWillHide(notification: NSNotification) {
+        
+        // In case the keyboard is hidden, don't continue.
+        // This happens when running in the simulator with the keyboard hidden
+        // or when running in an iPad with a hardware keyboard connected.
+        guard !CGRectIsEmpty(originalFrame) else  { return }
         
         guard let userInfo = notification.userInfo else { return }
         guard let duration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSTimeInterval,
