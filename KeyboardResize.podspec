@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name              = 'KeyboardResize'
-  s.version           = '1.0.0'
+  s.version           = '1.1.0'
   s.license           = 'MIT'
   s.summary           = 'Automatically resize the view of your controllers when the keyboard appears'
   s.homepage          = 'https://github.com/KogiMobileSAS/KeyboardResize'
