@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        kg_resizeViewWhenKeyboardAppears = true
+        kr_resizeViewWhenKeyboardAppears = true
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeybaord))
         view.addGestureRecognizer(tapGesture)

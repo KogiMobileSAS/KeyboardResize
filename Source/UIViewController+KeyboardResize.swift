@@ -15,7 +15,7 @@ extension UIViewController {
         static var OriginalFrame = "kg_OriginalFrameKey"
     }
     
-    public var kg_resizeViewWhenKeyboardAppears: Bool {
+    public var kr_resizeViewWhenKeyboardAppears: Bool {
         get {
             guard let resizeViewWhenKeyboardAppears = objc_getAssociatedObject(
                 self,
@@ -55,7 +55,7 @@ extension UIViewController {
     func viewWillAppearResizeKeyboard(animated: Bool) {
         viewWillAppearResizeKeyboard(animated)
         
-        if kg_resizeViewWhenKeyboardAppears {
+        if kr_resizeViewWhenKeyboardAppears {
             NSNotificationCenter.defaultCenter().addObserver(
                 self,
                 selector: #selector(keyboardWillShow(_:)),

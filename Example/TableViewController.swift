@@ -16,7 +16,7 @@ class TableViewController: UIViewController {
         super.viewDidLoad()
 
         configureTable()
-        kg_resizeViewWhenKeyboardAppears = true
+        kr_resizeViewWhenKeyboardAppears = true
     }
     
     private func configureTable() {
