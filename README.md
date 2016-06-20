@@ -19,7 +19,7 @@ import KeyboardResize
 override func viewDidLoad() {
     super.viewDidLoad()
 
-    kg_resizeViewWhenKeyboardAppears = true
+    kr_resizeViewWhenKeyboardAppears = true
 }
 ```
 
