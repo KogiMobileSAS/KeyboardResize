@@ -8,7 +8,7 @@ KeyboardResize is a library that automatically resizes the view of your controll
 ## Installation
 
 ```ruby
-pod 'KeyboardResize', '~> 1.0'
+pod 'KeyboardResize', '~> 2.0'
 ```
 
 ## Usage
