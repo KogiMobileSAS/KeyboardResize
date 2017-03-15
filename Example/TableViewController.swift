@@ -19,7 +19,7 @@ class TableViewController: UIViewController {
         kr_resizeViewWhenKeyboardAppears = true
     }
     
-    private func configureTable() {
+    fileprivate func configureTable() {
         tableView.dataSource = self
         
         let footerFrame = CGRect(x: 0, y: 0, width: view.bounds.width, height: 50)
@@ -31,13 +31,13 @@ class TableViewController: UIViewController {
 
 extension TableViewController: UITableViewDataSource {
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 15
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell",
-                                                               forIndexPath: indexPath)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell",
+                                                               for: indexPath)
         
         return cell
     }

@@ -10,7 +10,7 @@ import UIKit
 
 extension UIViewController {
     
-    private struct AssociatedKeys {
+    fileprivate struct AssociatedKeys {
         static var ResizeViewWhenKeyboardAppears = "kg_ResizeViewWhenKeyboardAppearsKey"
         static var OriginalFrame = "kg_OriginalFrameKey"
     }
@@ -33,12 +33,12 @@ extension UIViewController {
         }
     }
     
-    private var originalFrame: CGRect {
+    fileprivate var originalFrame: CGRect {
         get {
             guard let frameString = objc_getAssociatedObject(
                 self,
                 &AssociatedKeys.OriginalFrame) as? String else {
-                    return CGRectZero
+                    return CGRect.zero
             }
             return CGRectFromString(frameString)
         }
@@ -52,62 +52,62 @@ extension UIViewController {
         }
     }
     
-    func viewWillAppearResizeKeyboard(animated: Bool) {
+    func viewWillAppearResizeKeyboard(_ animated: Bool) {
         viewWillAppearResizeKeyboard(animated)
         
         if kr_resizeViewWhenKeyboardAppears {
-            NSNotificationCenter.defaultCenter().addObserver(
+            NotificationCenter.default.addObserver(
                 self,
                 selector: #selector(keyboardWillShow(_:)),
-                name: UIKeyboardWillShowNotification,
+                name: NSNotification.Name.UIKeyboardWillShow,
                 object: nil)
             
-            NSNotificationCenter.defaultCenter().addObserver(
+            NotificationCenter.default.addObserver(
                 self,
                 selector: #selector(keyboardWillHide(_:)),
-                name: UIKeyboardWillHideNotification,
+                name: NSNotification.Name.UIKeyboardWillHide,
                 object: nil)
         }
     }
     
-    func viewWillDisappearResizeKeyboard(animated: Bool) {
+    func viewWillDisappearResizeKeyboard(_ animated: Bool) {
         viewWillDisappearResizeKeyboard(animated)
         
-        NSNotificationCenter.defaultCenter().removeObserver(
+        NotificationCenter.default.removeObserver(
             self,
-            name: UIKeyboardWillShowNotification,
+            name: NSNotification.Name.UIKeyboardWillShow,
             object: nil)
         
-        NSNotificationCenter.defaultCenter().removeObserver(
+        NotificationCenter.default.removeObserver(
             self,
-            name: UIKeyboardWillHideNotification,
+            name: NSNotification.Name.UIKeyboardWillHide,
             object: nil)
     }
     
-    func keyboardWillShow(notification: NSNotification) {
+    func keyboardWillShow(_ notification: Notification) {
         
-        if CGRectIsEmpty(originalFrame) {
+        if originalFrame.isEmpty {
             originalFrame = view.frame
         }
         
         guard let userInfo = notification.userInfo,
-            keyboardFinalFrameValue = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue else {
+            let keyboardFinalFrameValue = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue else {
                 return
         }
         
-        guard let duration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSTimeInterval,
-            animationCurveRaw = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? UInt else {
+        guard let duration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? TimeInterval,
+            let animationCurveRaw = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? UInt else {
                 
                 return
         }
         
         let animationCurve = UIViewAnimationOptions(rawValue: animationCurveRaw)
-        let keyboardFinalFrame = keyboardFinalFrameValue.CGRectValue()
+        let keyboardFinalFrame = keyboardFinalFrameValue.cgRectValue
         
-        UIView.animateWithDuration(
-            duration,
+        UIView.animate(
+            withDuration: duration,
             delay: 0,
-            options: [.BeginFromCurrentState, animationCurve],
+            options: [.beginFromCurrentState, animationCurve],
             animations: {
                 
                 self.view.frame = CGRect(
@@ -119,26 +119,26 @@ extension UIViewController {
             completion: nil)
     }
     
-    func keyboardWillHide(notification: NSNotification) {
+    func keyboardWillHide(_ notification: Notification) {
         
         // In case the keyboard is hidden, don't continue.
         // This happens when running in the simulator with the keyboard hidden
         // or when running in an iPad with a hardware keyboard connected.
-        guard !CGRectIsEmpty(originalFrame) else  { return }
+        guard !originalFrame.isEmpty else  { return }
         
         guard let userInfo = notification.userInfo else { return }
-        guard let duration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSTimeInterval,
-            animationCurveRaw = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? UInt else {
+        guard let duration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? TimeInterval,
+            let animationCurveRaw = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? UInt else {
                 
                 return
         }
         
         let animationCurve = UIViewAnimationOptions(rawValue: animationCurveRaw)
         
-        UIView.animateWithDuration(
-            duration,
+        UIView.animate(
+            withDuration: duration,
             delay: 0,
-            options: [.BeginFromCurrentState, animationCurve],
+            options: [.beginFromCurrentState, animationCurve],
             animations: {
                 
                 self.view.frame = self.originalFrame
@@ -146,19 +146,10 @@ extension UIViewController {
             completion: nil)
     }
     
-    public override class func initialize() {
-        struct Static {
-            static var token: dispatch_once_t = 0
-        }
-        
-        // make sure this isn't a subclass
-        if self !== UIViewController.self {
-            return
-        }
-        
-        dispatch_once(&Static.token) {
+    open override class func initialize() {
+        if self !== UIViewController.self { return}
             
-            func swizzleSelectors(originalSelector originalSelector: Selector, swizzledSelector: Selector) {
+            func swizzleSelectors(originalSelector: Selector, swizzledSelector: Selector) {
                 let originalMethod = class_getInstanceMethod(self, originalSelector)
                 let swizzledMethod = class_getInstanceMethod(self, swizzledSelector)
                 
@@ -173,6 +164,5 @@ extension UIViewController {
             
             swizzleSelectors(originalSelector: #selector(viewWillAppear(_:)), swizzledSelector: #selector(viewWillAppearResizeKeyboard(_:)))
             swizzleSelectors(originalSelector: #selector(viewWillDisappear(_:)), swizzledSelector: #selector(viewWillDisappearResizeKeyboard(_:)))
-        }
     }
 }
